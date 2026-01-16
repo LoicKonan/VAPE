@@ -5,7 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PulseVend Nightlife Vending</title>
   <meta name="description" content="PulseVend Nightlife Vending helps bars, clubs, and casinos keep guests inside with ID-gated, cashless, fully serviced vending." />
-  <link rel="icon" href="data:,">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pulsevend.netlify.app/" />
+  <meta property="og:title" content="PulseVend Nightlife Vending" />
+  <meta property="og:description" content="Keep guests inside with nightlife vending that runs itself. ID-gated, cashless, fully serviced. San Antonio." />
+  <meta property="og:image" content="https://pulsevend.netlify.app/V1.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PulseVend Nightlife Vending" />
+  <meta name="twitter:description" content="Keep guests inside with nightlife vending that runs itself. ID-gated, cashless, fully serviced." />
+  <meta name="twitter:image" content="https://pulsevend.netlify.app/V1.jpeg" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230f172a'/><stop offset='100%25' stop-color='%232563eb'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,7 +28,7 @@
       (window.plausible.q = window.plausible.q || []).push(arguments);
     };
   </script>
-  <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="pulsevend.netlify.app" src="https://plausible.io/js/script.js"></script>
   <style>
     :root{
       --bg:#f5f6fb;
@@ -47,6 +61,7 @@
     .container{width:min(1180px, 100% - 40px); margin:0 auto}
     header{
       position:sticky; top:0; z-index:30;
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       background: rgba(245,246,251,.9);
       border-bottom:1px solid var(--stroke);
@@ -267,10 +282,34 @@
     }
     .footerRow{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
     .tiny{font-size:12px; color:var(--muted)}
+    .menuToggle{
+      display:none;
+      background:none; border:none; cursor:pointer; padding:8px;
+      flex-direction:column; gap:5px; justify-content:center;
+    }
+    .menuToggle span{
+      display:block; width:24px; height:2px; background:var(--text);
+      border-radius:2px; transition: transform .2s ease, opacity .2s ease;
+    }
+    .menuToggle.open span:nth-child(1){transform: rotate(45deg) translate(5px, 5px)}
+    .menuToggle.open span:nth-child(2){opacity:0}
+    .menuToggle.open span:nth-child(3){transform: rotate(-45deg) translate(5px, -5px)}
     @media (max-width: 1024px){
       h1{font-size:36px}
       .heroGrid{grid-template-columns:1fr; gap:26px}
-      .links{display:none}
+      .menuToggle{display:flex}
+      .links{
+        display:none;
+        position:absolute; top:100%; left:0; right:0;
+        background:rgba(245,246,251,.98);
+        -webkit-backdrop-filter:blur(10px);
+        backdrop-filter:blur(10px);
+        flex-direction:column; padding:16px 20px; gap:12px;
+        border-bottom:1px solid var(--stroke);
+        box-shadow: 0 8px 20px rgba(15,18,32,.1);
+      }
+      .links.open{display:flex}
+      .links a{padding:8px 0; font-size:16px}
     }
     @media (max-width: 720px){
       .container{width:min(100%, 100% - 28px)}
@@ -281,6 +320,29 @@
       .formRow.inline{grid-template-columns:1fr}
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PulseVend Nightlife Vending",
+    "description": "ID-gated, cashless, fully serviced vending machines for bars, clubs, and casinos.",
+    "url": "https://pulsevend.netlify.app",
+    "telephone": "+1-817-681-5136",
+    "email": "loickonan.lk@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Antonio",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "San Antonio"
+    },
+    "priceRange": "$$",
+    "image": "https://pulsevend.netlify.app/V1.jpeg"
+  }
+  </script>
 </head>
 
 <body>
@@ -294,6 +356,9 @@
             <small>Veteran-owned • San Antonio</small>
           </div>
         </a>
+        <button type="button" class="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
         <nav class="links" aria-label="Primary">
           <a href="#how">Why it works</a>
           <a href="#machines">Products</a>
@@ -492,15 +557,15 @@
         </div>
         <div class="gallery">
           <figure>
-            <img src="V2.jpeg" alt="Packaging and merchandising kit" />
+            <img src="V2.jpeg" alt="Packaging and merchandising kit" loading="lazy" />
             <figcaption>Flavor-forward merchandising</figcaption>
           </figure>
           <figure>
-            <img src="V1.jpeg" alt="Front-facing machine display with inventory" />
+            <img src="V1.jpeg" alt="Front-facing machine display with inventory" loading="lazy" />
             <figcaption>Wall-mounted hardware highlight</figcaption>
           </figure>
           <figure>
-            <img src="V5.webp" alt="Variety of device colors" />
+            <img src="V5.webp" alt="Variety of device colors" loading="lazy" />
             <figcaption>Curated colorways</figcaption>
           </figure>
         </div>
@@ -524,15 +589,15 @@
             </div>
             <form
               class="formCard"
-              action="https://formsubmit.co/loickonan.lk@gmail.com"
+              name="placement"
               method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
               data-track-form
               data-location="contact"
             >
-              <input type="hidden" name="_subject" value="PulseVend Placement Inquiry" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="text" name="_honey" style="display:none" />
+              <input type="hidden" name="form-name" value="placement" />
+              <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
               <div class="formRow inline">
                 <div class="formField">
                   <label for="venue">Venue name</label>
@@ -607,6 +672,23 @@
       form.addEventListener("submit", () => {
         const location = form.getAttribute("data-location") || "contact";
         trackEvent("Form Submit", { location });
+      });
+    }
+
+    const menuToggle = document.querySelector(".menuToggle");
+    const links = document.querySelector(".links");
+    if (menuToggle && links) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = links.classList.toggle("open");
+        menuToggle.classList.toggle("open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen);
+      });
+      links.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          links.classList.remove("open");
+          menuToggle.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
       });
     }
 
