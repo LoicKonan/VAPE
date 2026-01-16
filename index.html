@@ -397,30 +397,58 @@
       .formRow.inline{grid-template-columns:1fr}
     }
     /* FAQ Accordion */
-    .faq-list{display:grid; gap:8px}
+    .faq-toggle{
+      display:flex; align-items:center; gap:10px;
+      margin-top:12px;
+      background:var(--panel); border:1px solid var(--stroke);
+      padding:14px 20px; border-radius:12px;
+      font-family:inherit; font-size:14px; font-weight:700;
+      color:var(--text); cursor:pointer;
+      transition: all .25s ease;
+    }
+    .faq-toggle:hover{
+      border-color:var(--accent);
+      box-shadow: 0 0 20px var(--glow-purple);
+    }
+    .faq-toggle-icon{
+      transition: transform .3s ease;
+    }
+    .faq-toggle.open .faq-toggle-icon{transform:rotate(180deg)}
+    .faq-list{
+      display:grid; gap:12px;
+      max-height:0; overflow:hidden;
+      opacity:0;
+      transition: max-height .4s ease, opacity .3s ease, margin .3s ease;
+      margin-top:0;
+    }
+    .faq-list.open{
+      max-height:2000px;
+      opacity:1;
+      margin-top:16px;
+    }
     .faq-item{
       background:var(--panel);
       border:1px solid var(--stroke);
-      border-radius:10px;
+      border-radius:14px;
       overflow:hidden;
       transition: all .25s ease;
     }
     .faq-item:hover{border-color:var(--accent2)}
     .faq-question{
       display:flex; justify-content:space-between; align-items:center;
-      padding:14px 16px;
+      padding:18px 20px;
       background:none; border:none; width:100%;
-      font-family:inherit; font-size:14px; font-weight:700;
+      font-family:inherit; font-size:15px; font-weight:700;
       color:var(--text); text-align:left;
-      cursor:pointer; gap:12px;
+      cursor:pointer; gap:16px;
     }
     .faq-question:hover{color:var(--accent)}
     .faq-icon{
-      width:20px; height:20px; flex-shrink:0;
+      width:24px; height:24px; flex-shrink:0;
       display:flex; align-items:center; justify-content:center;
-      border-radius:6px;
+      border-radius:8px;
       background:linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#fff; font-size:14px; font-weight:400;
+      color:#fff; font-size:18px; font-weight:400;
       transition: transform .25s ease;
     }
     .faq-item.open .faq-icon{transform:rotate(45deg)}
@@ -430,8 +458,8 @@
     }
     .faq-item.open .faq-answer{max-height:300px}
     .faq-answer-inner{
-      padding:0 16px 14px;
-      color:var(--muted); font-size:13px; line-height:1.6;
+      padding:0 20px 18px;
+      color:var(--muted); font-size:14px; line-height:1.7;
     }
     /* Scroll animations */
     .fade-in{
@@ -706,6 +734,10 @@
           <h2>Frequently Asked Questions</h2>
           <p>Common questions from venue owners.</p>
         </div>
+        <button type="button" class="faq-toggle fade-in">
+          <span class="faq-toggle-icon">▼</span>
+          <span>View all questions</span>
+        </button>
         <div class="faq-list">
           <div class="faq-item fade-in fade-in-delay-1">
             <button type="button" class="faq-question">
@@ -920,6 +952,15 @@
     fadeElements.forEach(el => observer.observe(el));
 
     // FAQ Accordion
+    const faqToggle = document.querySelector(".faq-toggle");
+    const faqList = document.querySelector(".faq-list");
+    if (faqToggle && faqList) {
+      faqToggle.addEventListener("click", () => {
+        const isOpen = faqList.classList.toggle("open");
+        faqToggle.classList.toggle("open", isOpen);
+        faqToggle.querySelector("span:last-child").textContent = isOpen ? "Hide questions" : "View all questions";
+      });
+    }
     document.querySelectorAll(".faq-question").forEach(btn => {
       btn.addEventListener("click", () => {
         const item = btn.parentElement;
