@@ -1,15 +1,15 @@
 # I.S.K NightLife Vending Machine
 
-Veteran-owned nightlife vending experience for bars, clubs, and casinos in San Antonio. This repo is a React single-page site with no build step (ESM via CDN).
+Veteran-owned nightlife vending experience for bars, clubs, and casinos in San Antonio. This repo is a static single-page site with no build step.
 
 ## Highlights
-- React SPA with a single `index.html` entry point.
+- Static SPA with a single `index.html` entry point.
 - Sections: hero, why it works, product mix, operations loop, gallery, and contact CTA.
 - Ready-to-use photo assets included in the repo.
 
 ## Quick start
 - Serve locally (recommended): `python -m http.server` then open the shown URL.
-- Or open `index.html` directly in a browser (it imports React via ESM CDN).
+- Or open `index.html` directly in a browser.
 
 ## Project structure
 - `index.html` — Landing page and all UI copy.
@@ -24,7 +24,7 @@ Veteran-owned nightlife vending experience for bars, clubs, and casinos in San A
 - Contact form: replace the `action` URL in `index.html` if you want Formsubmit, Formspree, or Netlify Forms.
 - Analytics: update the Plausible `data-domain` value in `index.html` to your live domain.
 - Adjust copy in `index.html` to match your offer or compliance language.
-- Swap images by replacing files or updating the `gallery` array in the script.
+- Swap images by replacing files or updating the `gallery` section in the HTML.
 
 ## Gallery
 ![Machine hero shot](V1.jpeg)

@@ -76,6 +76,7 @@
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       cursor:pointer; gap:8px;
       box-shadow: 0 8px 20px rgba(15,18,32,.08);
+      font-family:inherit;
     }
     .btn.primary{
       background: linear-gradient(120deg, var(--accent), var(--accent2));
@@ -100,6 +101,7 @@
     }
     h1{margin:14px 0 12px; font-size:44px; line-height:1.05; letter-spacing:-.4px}
     .lead{color:var(--muted); font-size:16px; max-width:62ch; margin:0 0 14px}
+    .leadStrong{color:var(--text); font-weight:700; margin:4px 0 12px}
     .ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
     .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .chip{
@@ -137,6 +139,7 @@
       margin-top:10px; display:flex; justify-content:space-between; align-items:center;
       color:var(--muted); font-size:13px; font-weight:700;
     }
+    .heroLabelStrong{color:var(--text); font-weight:700}
     .sectionHeader{
       display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap;
       margin-bottom:16px;
@@ -217,7 +220,7 @@
       display:grid; grid-template-columns: repeat(2, minmax(0,1fr));
       gap:16px; align-items:start; position:relative; z-index:1;
     }
-    .contactCopy{display:grid; gap:10px}
+    .contactCopy{display:grid; gap:10px; max-width:760px}
     .formCard{
       background:rgba(255,255,255,.96);
       border:1px solid var(--stroke);
@@ -257,10 +260,12 @@
       background:radial-gradient(420px 200px at 85% 10%, rgba(255,255,255,.7), transparent 70%);
       mix-blend-mode:soft-light; opacity:.5; pointer-events:none;
     }
+    .contactNote{margin-top:10px}
     footer{
       padding:28px 0 40px; border-top:1px solid var(--stroke);
       color:var(--muted); font-size:13px;
     }
+    .footerRow{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
     .tiny{font-size:12px; color:var(--muted)}
     @media (max-width: 1024px){
       h1{font-size:36px}
@@ -279,366 +284,336 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top">
+          <div class="brandMark" aria-hidden="true"></div>
+          <div>
+            I.S.K NightLife Vending Machine
+            <small>Veteran-owned • San Antonio</small>
+          </div>
+        </a>
+        <nav class="links" aria-label="Primary">
+          <a href="#how">Why it works</a>
+          <a href="#machines">Products</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="btn primary" href="#contact" data-track="CTA Click" data-location="nav">Book a placement</a>
+      </div>
+    </div>
+  </header>
 
-  <script type="module">
-    import React from "https://esm.sh/react@18.2.0";
-    import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
-    import htm from "https://esm.sh/htm@3.1.1";
+  <main id="top">
+    <section class="hero">
+      <div class="container heroGrid">
+        <div>
+          <div class="pill">Veteran-owned • San Antonio • 21+ verified</div>
+          <h1>Keep guests inside with nightlife vending that runs itself.</h1>
+          <p class="lead">We install wall-mounted nightlife vending machines in high-traffic bars, clubs, and casinos so guests stay longer and spend more.</p>
+          <p class="lead leadStrong">Zero effort for your staff: we handle licensing, placement, stocking, maintenance, and support.</p>
+          <div class="ctaRow">
+            <a class="btn primary" href="#contact" data-track="CTA Click" data-location="hero">Start a placement</a>
+            <a class="btn" href="#gallery">View gallery</a>
+          </div>
+          <div class="chips">
+            <span class="chip">Tap/chip/mobile pay + ID gate</span>
+            <span class="chip">Chargers, pouches, recovery add-ons</span>
+            <span class="chip">Full-service install and support</span>
+          </div>
+          <div class="statRow">
+            <div class="stat">
+              <strong>48 hrs or less</strong>
+              <span>Typical install window</span>
+            </div>
+            <div class="stat">
+              <strong>0 hrs/wk</strong>
+              <span>Venue labor required</span>
+            </div>
+            <div class="stat">
+              <strong>99.2%</strong>
+              <span>Uptime with remote monitoring</span>
+            </div>
+          </div>
+        </div>
 
-    const html = htm.bind(React.createElement);
+        <div class="heroVisual">
+          <div class="heroShot">
+            <img src="V1.jpeg" alt="I.S.K NightLife vending machine with product assortment" />
+            <div class="heroLabel">
+              <span>Modern footprint</span>
+              <span class="heroLabelStrong">I.S.K NightLife</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <div class="sectionHeader">
+          <h2>Why venues say yes</h2>
+          <p>Keep guests on-site, add found revenue, and avoid staff distraction.</p>
+        </div>
+        <div class="gridCards">
+          <div class="card">
+            <h3>Keeps tabs inside</h3>
+            <p>Guests stay for another round instead of leaving to find nicotine or essentials.</p>
+          </div>
+          <div class="card">
+            <h3>Zero effort</h3>
+            <p>Licensing, placement, stocking, maintenance, payments, and support handled by us.</p>
+          </div>
+          <div class="card">
+            <h3>Revenue share</h3>
+            <p>Automatic upside from every sale with clear reporting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="machines">
+      <div class="container">
+        <div class="sectionHeader">
+          <h2>What goes in the machine</h2>
+          <p>Curated adult essentials with a premium, compliant purchase flow.</p>
+        </div>
+        <div class="splitGrid">
+          <div class="card stackCard">
+            <h3>The mix</h3>
+            <p>Adult-only essentials curated for late-night demand.</p>
+            <ul class="stackList">
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Nicotine pouches and devices</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Chargers and emergency power</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Recovery drinks and late-night add-ons</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Rotated SKUs based on venue feedback</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card stackCard">
+            <h3>The experience</h3>
+            <p>Fast, compliant checkout designed to keep guests inside.</p>
+            <ul class="stackList">
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>ID-gated purchase flow with clear prompts</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Tap, chip, and mobile wallet payments</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>On-screen receipts and guidance</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Remote monitoring for stock and uptime</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="sectionHeader">
+          <h2>How we run it</h2>
+          <p>Turnkey operations that keep guests spending and staff hands-free.</p>
+        </div>
+        <div class="flowGrid">
+          <div class="card">
+            <div class="flowTag">Step 01</div>
+            <h3>Install and brand</h3>
+            <p>We place the unit and set the screen to match your venue.</p>
+            <ul class="flowList">
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>After-hours install to avoid disruption</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Low-profile footprint that fits the room</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="flowTag">Step 02</div>
+            <h3>Operate and service</h3>
+            <p>Compliance, cashless payments, restock, and maintenance handled by us.</p>
+            <ul class="flowList">
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>ID gate and digital receipts</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Scheduled restocks and on-call support</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="flowTag">Step 03</div>
+            <h3>Share and report</h3>
+            <p>You earn from each sale with clear reporting.</p>
+            <ul class="flowList">
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Simple revenue share</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Monthly sales and uptime summary</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="sectionHeader">
+          <h2>Gallery</h2>
+          <p>Real shots from the current hardware and merchandising.</p>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="V2.jpeg" alt="Packaging and merchandising kit" />
+            <figcaption>Flavor-forward merchandising</figcaption>
+          </figure>
+          <figure>
+            <img src="V1.jpeg" alt="Front-facing machine display with inventory" />
+            <figcaption>Wall-mounted hardware highlight</figcaption>
+          </figure>
+          <figure>
+            <img src="V5.webp" alt="Variety of device colors" />
+            <figcaption>Curated colorways</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div class="contactGrid">
+            <div class="contactCopy">
+              <h3>Ready for a placement?</h3>
+              <p>Tell us your venue name, city, and best contact. We'll confirm compliance, placement options, and launch dates.</p>
+              <div class="ctaRow">
+                <a class="btn primary" href="mailto:loickonan.lk@gmail.com?subject=I.S.K%20Placement%20Inquiry&body=Venue%20Name:%0ACity:%0AContact%20Name:%0AWhat%20you%27re%20looking%20for:" data-track="CTA Click" data-location="contact_email">Email loickonan.lk@gmail.com</a>
+                <a class="btn" href="tel:+18176815136" data-track="CTA Click" data-location="contact_phone">Call: (817) 681-5136</a>
+              </div>
+              <div class="tiny contactNote">
+                Compliance note: We follow federal and state/local rules for tobacco and vapor products (including FDA regulations). Placement is limited to venues that permit age-restricted products; venue policies apply. Veteran-owned, locally operated in San Antonio.
+              </div>
+            </div>
+            <form
+              class="formCard"
+              action="https://formsubmit.co/loickonan.lk@gmail.com"
+              method="POST"
+              data-track-form
+              data-location="contact"
+            >
+              <input type="hidden" name="_subject" value="I.S.K Placement Inquiry" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" style="display:none" />
+              <div class="formRow inline">
+                <div class="formField">
+                  <label for="venue">Venue name</label>
+                  <input class="field" id="venue" name="venue_name" type="text" required autocomplete="organization" />
+                </div>
+                <div class="formField">
+                  <label for="city">City</label>
+                  <input class="field" id="city" name="city" type="text" required autocomplete="address-level2" />
+                </div>
+              </div>
+              <div class="formRow inline">
+                <div class="formField">
+                  <label for="contact-name">Contact name</label>
+                  <input class="field" id="contact-name" name="contact_name" type="text" required autocomplete="name" />
+                </div>
+                <div class="formField">
+                  <label for="email">Email</label>
+                  <input class="field" id="email" name="email" type="email" required autocomplete="email" />
+                </div>
+              </div>
+              <div class="formRow inline">
+                <div class="formField">
+                  <label for="phone">Phone (optional)</label>
+                  <input class="field" id="phone" name="phone" type="tel" autocomplete="tel" />
+                </div>
+                <div class="formField">
+                  <label for="timeline">Placement timeline</label>
+                  <input class="field" id="timeline" name="timeline" type="text" placeholder="e.g., Next 30 days" />
+                </div>
+              </div>
+              <div class="formRow">
+                <div class="formField">
+                  <label for="notes">Notes</label>
+                  <textarea class="field" id="notes" name="notes" rows="4" placeholder="Square footage, peak hours, any venue requirements"></textarea>
+                </div>
+              </div>
+              <div class="formActions">
+                <button class="btn primary" type="submit">Request placement</button>
+                <span class="helper">We usually reply within 24 hours.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerRow">
+      <div>© <span data-year></span> I.S.K NightLife Vending Machine</div>
+      <div class="tiny">ID-verified • Cashless • Full-service</div>
+    </div>
+  </footer>
+
+  <script>
     const trackEvent = (name, props = {}) => {
-      if (typeof window !== "undefined" && typeof window.plausible === "function") {
+      if (typeof window.plausible === "function") {
         window.plausible(name, { props });
       }
     };
 
-    const features = [
-      { title: "Keeps tabs inside", desc: "Guests stay for another round instead of leaving to find nicotine or essentials." },
-      { title: "Zero effort", desc: "Licensing, placement, stocking, maintenance, payments, and support handled by us." },
-      { title: "Revenue share", desc: "Automatic upside from every sale with clear reporting." }
-    ];
+    document.querySelectorAll("[data-track]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const name = el.getAttribute("data-track");
+        const location = el.getAttribute("data-location");
+        trackEvent(name, location ? { location } : {});
+      });
+    });
 
-    const machineBlocks = [
-      {
-        title: "The mix",
-        desc: "Adult-only essentials curated for late-night demand.",
-        items: [
-          "Nicotine pouches and devices",
-          "Chargers and emergency power",
-          "Recovery drinks and late-night add-ons",
-          "Rotated SKUs based on venue feedback"
-        ]
-      },
-      {
-        title: "The experience",
-        desc: "Fast, compliant checkout designed to keep guests inside.",
-        items: [
-          "ID-gated purchase flow with clear prompts",
-          "Tap, chip, and mobile wallet payments",
-          "On-screen receipts and guidance",
-          "Remote monitoring for stock and uptime"
-        ]
-      }
-    ];
-
-    const opsFlow = [
-      {
-        tag: "01",
-        title: "Install and brand",
-        desc: "We place the unit and set the screen to match your venue.",
-        items: ["After-hours install to avoid disruption", "Low-profile footprint that fits the room"]
-      },
-      {
-        tag: "02",
-        title: "Operate and service",
-        desc: "Compliance, cashless payments, restock, and maintenance handled by us.",
-        items: ["ID gate and digital receipts", "Scheduled restocks and on-call support"]
-      },
-      {
-        tag: "03",
-        title: "Share and report",
-        desc: "You earn from each sale with clear reporting.",
-        items: ["Simple revenue share", "Monthly sales and uptime summary"]
-      }
-    ];
-
-    const gallery = [
-      { src: "V2.jpeg", alt: "Packaging and merchandising kit", caption: "Flavor-forward merchandising" },
-      { src: "V1.jpeg", alt: "Front-facing machine display with inventory", caption: "Wall-mounted hardware highlight" },
-      { src: "V5.webp", alt: "Variety of device colors", caption: "Curated colorways" }
-    ];
-
-    function SectionHeader({ title, subtitle }) {
-      return html`
-        <div className="sectionHeader">
-          <h2>${title}</h2>
-          <p>${subtitle}</p>
-        </div>
-      `;
+    const form = document.querySelector("[data-track-form]");
+    if (form) {
+      form.addEventListener("submit", () => {
+        const location = form.getAttribute("data-location") || "contact";
+        trackEvent("Form Submit", { location });
+      });
     }
 
-    function FeatureGrid() {
-      return html`
-        <div className="gridCards">
-          ${features.map((f) => html`
-            <div className="card" key=${f.title}>
-              <h3>${f.title}</h3>
-              <p>${f.desc}</p>
-            </div>
-          `)}
-        </div>
-      `;
+    const yearEl = document.querySelector("[data-year]");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
     }
-
-    function MachineBlocks() {
-      return html`
-        <div className="splitGrid">
-          ${machineBlocks.map((block) => html`
-            <div className="card stackCard" key=${block.title}>
-              <h3>${block.title}</h3>
-              <p>${block.desc}</p>
-              <ul className="stackList">
-                ${block.items.map((item) => html`
-                  <li className="stackItem" key=${item}>
-                    <span className="stackDot"></span>
-                    <span>${item}</span>
-                  </li>
-                `)}
-              </ul>
-            </div>
-          `)}
-        </div>
-      `;
-    }
-
-    function OpsFlow() {
-      return html`
-        <div className="flowGrid">
-          ${opsFlow.map((step) => html`
-            <div className="card" key=${step.title}>
-              <div className="flowTag">Step ${step.tag}</div>
-              <h3>${step.title}</h3>
-              <p>${step.desc}</p>
-              <ul className="flowList">
-                ${step.items.map((item) => html`
-                  <li className="stackItem" key=${item}>
-                    <span className="stackDot"></span>
-                    <span>${item}</span>
-                  </li>
-                `)}
-              </ul>
-            </div>
-          `)}
-        </div>
-      `;
-    }
-
-    function Gallery() {
-      return html`
-        <div className="gallery">
-          ${gallery.map((item) => html`
-            <figure key=${item.caption}>
-              <img src=${item.src} alt=${item.alt} />
-              <figcaption>${item.caption}</figcaption>
-            </figure>
-          `)}
-        </div>
-      `;
-    }
-
-    function App() {
-      const year = new Date().getFullYear();
-      return html`
-        <${React.Fragment}>
-          <header>
-            <div className="container">
-              <div className="nav">
-                <a className="brand" href="#top">
-                  <div className="brandMark" aria-hidden="true"></div>
-                  <div>
-                    I.S.K NightLife Vending Machine
-                    <small>Veteran-owned • San Antonio</small>
-                  </div>
-                </a>
-                <nav className="links" aria-label="Primary">
-                  <a href="#how">Why it works</a>
-                  <a href="#machines">Products</a>
-                  <a href="#gallery">Gallery</a>
-                  <a href="#contact">Contact</a>
-                </nav>
-                <a
-                  className="btn primary"
-                  href="#contact"
-                  onClick=${() => trackEvent("CTA Click", { location: "nav" })}
-                >
-                  Book a placement
-                </a>
-              </div>
-            </div>
-          </header>
-
-          <main id="top">
-            <section className="hero">
-              <div className="container heroGrid">
-                <div>
-                  <div className="pill">Veteran-owned • San Antonio • 21+ verified</div>
-                  <h1>Keep guests inside with nightlife vending that runs itself.</h1>
-                  <p className="lead">We install wall-mounted nightlife vending machines in high-traffic bars, clubs, and casinos so guests stay longer and spend more.</p>
-                  <p className="lead" style=${{ color: "var(--text)", fontWeight: 700, margin: "4px 0 12px" }}>Zero effort for your staff: we handle licensing, placement, stocking, maintenance, and support.</p>
-                  <div className="ctaRow">
-                    <a
-                      className="btn primary"
-                      href="#contact"
-                      onClick=${() => trackEvent("CTA Click", { location: "hero" })}
-                    >
-                      Start a placement
-                    </a>
-                    <a className="btn" href="#gallery">View gallery</a>
-                  </div>
-                  <div className="chips">
-                    <span className="chip">Tap/chip/mobile pay + ID gate</span>
-                    <span className="chip">Chargers, pouches, recovery add-ons</span>
-                    <span className="chip">Full-service install and support</span>
-                  </div>
-                  <div className="statRow">
-                    <div className="stat">
-                      <strong>48 hrs or less</strong>
-                      <span>Typical install window</span>
-                    </div>
-                    <div className="stat">
-                      <strong>0 hrs/wk</strong>
-                      <span>Venue labor required</span>
-                    </div>
-                    <div className="stat">
-                      <strong>99.2%</strong>
-                      <span>Uptime with remote monitoring</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="heroVisual">
-                  <div className="heroShot">
-                    <img src="V1.jpeg" alt="I.S.K NightLife vending machine with product assortment" />
-                    <div className="heroLabel">
-                      <span>Modern footprint</span>
-                      <span style=${{ color: "var(--text)", fontWeight: 700 }}>I.S.K NightLife</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="how">
-              <div className="container">
-                <${SectionHeader} title="Why venues say yes" subtitle="Keep guests on-site, add found revenue, and avoid staff distraction." />
-                <${FeatureGrid} />
-              </div>
-            </section>
-
-            <section id="machines">
-              <div className="container">
-                <${SectionHeader}
-                  title="What goes in the machine"
-                  subtitle="Curated adult essentials with a premium, compliant purchase flow."
-                />
-                <${MachineBlocks} />
-              </div>
-            </section>
-
-            <section>
-              <div className="container">
-                <${SectionHeader}
-                  title="How we run it"
-                  subtitle="Turnkey operations that keep guests spending and staff hands-free."
-                />
-                <${OpsFlow} />
-              </div>
-            </section>
-
-            <section id="gallery">
-              <div className="container">
-                <${SectionHeader} title="Gallery" subtitle="Real shots from the current hardware and merchandising." />
-                <${Gallery} />
-              </div>
-            </section>
-
-            <section id="contact">
-              <div className="container">
-                <div className="cta">
-                  <div className="contactGrid">
-                    <div className="contactCopy">
-                      <h3>Ready for a placement?</h3>
-                      <p>Tell us your venue name, city, and best contact. We'll confirm compliance, placement options, and launch dates.</p>
-                      <div className="ctaRow" style=${{ gap: "10px" }}>
-                        <a
-                          className="btn primary"
-                          href="mailto:loickonan.lk@gmail.com?subject=I.S.K%20Placement%20Inquiry&body=Venue%20Name:%0ACity:%0AContact%20Name:%0AWhat%20you%27re%20looking%20for:"
-                          onClick=${() => trackEvent("CTA Click", { location: "contact_email" })}
-                        >
-                          Email loickonan.lk@gmail.com
-                        </a>
-                        <a
-                          className="btn"
-                          href="tel:+18176815136"
-                          onClick=${() => trackEvent("CTA Click", { location: "contact_phone" })}
-                        >
-                          Call: (817) 681-5136
-                        </a>
-                      </div>
-                      <div className="tiny" style=${{ marginTop: "10px" }}>
-                        Compliance note: We follow federal and state/local rules for tobacco and vapor products (including FDA regulations). Placement is limited to venues that permit age-restricted products; venue policies apply. Veteran-owned, locally operated in San Antonio.
-                      </div>
-                    </div>
-                    <form
-                      className="formCard"
-                      action="https://formsubmit.co/loickonan.lk@gmail.com"
-                      method="POST"
-                      onSubmit=${() => trackEvent("Form Submit", { location: "contact" })}
-                    >
-                      <input type="hidden" name="_subject" value="I.S.K Placement Inquiry" />
-                      <input type="hidden" name="_template" value="table" />
-                      <input type="hidden" name="_captcha" value="false" />
-                      <input type="text" name="_honey" style=${{ display: "none" }} />
-                      <div className="formRow inline">
-                        <div className="formField">
-                          <label htmlFor="venue">Venue name</label>
-                          <input className="field" id="venue" name="venue_name" type="text" required autoComplete="organization" />
-                        </div>
-                        <div className="formField">
-                          <label htmlFor="city">City</label>
-                          <input className="field" id="city" name="city" type="text" required autoComplete="address-level2" />
-                        </div>
-                      </div>
-                      <div className="formRow inline">
-                        <div className="formField">
-                          <label htmlFor="contact-name">Contact name</label>
-                          <input className="field" id="contact-name" name="contact_name" type="text" required autoComplete="name" />
-                        </div>
-                        <div className="formField">
-                          <label htmlFor="email">Email</label>
-                          <input className="field" id="email" name="email" type="email" required autoComplete="email" />
-                        </div>
-                      </div>
-                      <div className="formRow inline">
-                        <div className="formField">
-                          <label htmlFor="phone">Phone (optional)</label>
-                          <input className="field" id="phone" name="phone" type="tel" autoComplete="tel" />
-                        </div>
-                        <div className="formField">
-                          <label htmlFor="timeline">Placement timeline</label>
-                          <input className="field" id="timeline" name="timeline" type="text" placeholder="e.g., Next 30 days" />
-                        </div>
-                      </div>
-                      <div className="formRow">
-                        <div className="formField">
-                          <label htmlFor="notes">Notes</label>
-                          <textarea className="field" id="notes" name="notes" rows="4" placeholder="Square footage, peak hours, any venue requirements"></textarea>
-                        </div>
-                      </div>
-                      <div className="formActions">
-                        <button className="btn primary" type="submit">Request placement</button>
-                        <span className="helper">We usually reply within 24 hours.</span>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </main>
-
-          <footer>
-            <div className="container" style=${{ display: "flex", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
-              <div>© ${year} I.S.K NightLife Vending Machine</div>
-              <div className="tiny">ID-verified • Cashless • Full-service</div>
-            </div>
-          </footer>
-        </${React.Fragment}>
-      `;
-    }
-
-    const root = createRoot(document.getElementById("root"));
-    root.render(html`<${App} />`);
   </script>
 </body>
 </html>
