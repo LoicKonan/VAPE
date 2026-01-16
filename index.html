@@ -74,20 +74,10 @@
     }
     .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:14px}
     .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
-    .brandMark{
-      width:42px; height:42px; border-radius:14px;
-      background: conic-gradient(from 200deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
-      box-shadow: 0 0 30px var(--glow-purple), 0 0 60px var(--glow-cyan);
-      position:relative; overflow:hidden;
-      animation: brandGlow 3s ease-in-out infinite alternate;
-    }
-    @keyframes brandGlow{
-      0%{box-shadow: 0 0 20px var(--glow-purple), 0 0 40px var(--glow-cyan)}
-      100%{box-shadow: 0 0 30px var(--glow-cyan), 0 0 50px var(--glow-purple)}
-    }
-    .brandMark::after{
-      content:""; position:absolute; inset:10px; border-radius:10px;
-      background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.1);
+    .brandLogo{
+      width:42px; height:42px; border-radius:12px;
+      object-fit:cover;
+      box-shadow: 0 0 20px var(--glow-purple);
     }
     .brand small{display:block; color:var(--muted); font-weight:600; font-size:12px}
     .links{display:flex; gap:18px; align-items:center; font-weight:700; color:var(--muted); font-size:14px}
@@ -508,7 +498,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top">
-          <div class="brandMark" aria-hidden="true"></div>
+          <img src="logo.jpeg" alt="PulseVend logo" class="brandLogo" />
           <div>PulseVend</div>
         </a>
         <button type="button" class="menuToggle" aria-label="Toggle menu" aria-expanded="false">
