@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pulsevend.netlify.app/sitemap.xml
+Sitemap: https://pulsevend.vercel.app/sitemap.xml
