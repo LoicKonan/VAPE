@@ -1,4 +1,4 @@
-# I.S.K NightLife Vending Machine
+# PulseVend Nightlife Vending
 
 Veteran-owned nightlife vending experience for bars, clubs, and casinos in San Antonio. This repo is a static single-page site with no build step.
 
