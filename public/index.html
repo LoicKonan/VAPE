@@ -179,9 +179,11 @@
       background:var(--panel); padding:12px;
     }
     .heroLabel{
-      margin-top:12px; display:flex; justify-content:space-between; align-items:center;
+      margin-top:6px; display:flex; justify-content:space-between; align-items:center;
       color:var(--muted); font-size:13px; font-weight:700;
-      padding:8px 12px; background:var(--panel); border-radius:10px;
+      padding:6px 12px; background:var(--panel-soft); border-radius:10px;
+      border:1px solid var(--stroke);
+      transform: translateY(-4px);
     }
     .heroLabelStrong{
       color:var(--accent); font-weight:700;
@@ -239,6 +241,7 @@
       list-style:none; padding:0; margin:12px 0 0;
       display:grid; gap:8px; color:var(--muted); font-size:14px;
     }
+    .costList{margin-top:6px}
     .gallery{
       display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap:12px;
@@ -579,7 +582,7 @@
           <div class="card fade-in fade-in-delay-1">
             <div class="flowTag">Step 01</div>
             <h3>Install and brand</h3>
-            <p>We place the unit and set the screen to match your venue.</p>
+            <p>Wall-mounted with a bright LED touchscreen and a slim footprint.</p>
             <ul class="flowList">
               <li class="stackItem">
                 <span class="stackDot"></span>
@@ -594,7 +597,7 @@
           <div class="card fade-in fade-in-delay-2">
             <div class="flowTag">Step 02</div>
             <h3>Operate and service</h3>
-            <p>Payments processing, restocks, and maintenance handled by us.</p>
+            <p>We acquire licenses, buy and stock inventory, maintain the unit, and handle customer service.</p>
             <ul class="flowList">
               <li class="stackItem">
                 <span class="stackDot"></span>
@@ -602,9 +605,33 @@
               </li>
               <li class="stackItem">
                 <span class="stackDot"></span>
-                <span>Scheduled restocks and on-call support</span>
+                <span>On-call support and rapid swaps</span>
               </li>
             </ul>
+            <div class="tiny">We handle all of these:</div>
+            <ul class="flowList costList">
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Cost of goods</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Sales tax</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Excise tax</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Software fees</span>
+              </li>
+              <li class="stackItem">
+                <span class="stackDot"></span>
+                <span>Processing fees</span>
+              </li>
+            </ul>
+            <div class="tiny">No out-of-pocket cost to the bar.</div>
           </div>
         </div>
       </div>
