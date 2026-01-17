@@ -463,6 +463,95 @@
       padding:0 20px 18px;
       color:var(--muted); font-size:14px; line-height:1.7;
     }
+    /* Product Showcase */
+    .productCategory{
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all .3s ease;
+    }
+    .productCategory:hover{
+      border-color: var(--accent);
+      box-shadow: 0 0 30px var(--glow-purple);
+    }
+    .categoryHeader{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .categoryHeader h3{
+      margin: 0;
+      font-size: 20px;
+      background: linear-gradient(135deg, var(--text), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .categoryTag{
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(168,85,247,.2), rgba(6,182,212,.2));
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .categoryDesc{
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+    .productGrid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .productGrid.fourCol{
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .productItem{
+      background: var(--bg-elevated);
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s ease;
+      overflow: hidden;
+    }
+    .productItem:hover{
+      border-color: var(--accent2);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.4), 0 0 20px var(--glow-cyan);
+    }
+    .productItem img{
+      max-width: 100%;
+      max-height: 140px;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform .3s ease;
+    }
+    .productItem:hover img{
+      transform: scale(1.05);
+    }
+    @media (max-width: 720px){
+      .productGrid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .productGrid.fourCol{
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .productCategory{
+        padding: 18px;
+      }
+    }
+
     /* Scroll animations */
     .fade-in{
       opacity:0;
@@ -510,7 +599,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top">
-          <img src="logo.jpeg" alt="PulseVend logo" class="brandLogo" />
+          <img src="assets/logo.jpeg" alt="PulseVend logo" class="brandLogo" />
           <div>PulseVend</div>
         </a>
         <button type="button" class="menuToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -558,7 +647,7 @@
 
         <div class="heroVisual">
           <div class="heroShot">
-            <img src="V5.webp" alt="Curated colorways of device finishes" />
+            <img src="assets/V5.webp" alt="Curated colorways of device finishes" />
             <div class="heroLabel">
               <span>Modern footprint</span>
               <span class="heroLabelStrong">PulseVend</span>
@@ -638,18 +727,67 @@
           <h2>What We Stock</h2>
           <p>Curated essentials your guests actually want — no clutter, no guesswork.</p>
         </div>
-        <div class="gridCards">
-          <div class="card fade-in fade-in-delay-1">
+
+        <!-- Disposable Vapes -->
+        <div class="productCategory fade-in">
+          <div class="categoryHeader">
             <h3>Disposable Vapes</h3>
-            <p>Top-selling brands and flavors, refreshed based on real sales data.</p>
+            <span class="categoryTag">Top sellers</span>
           </div>
-          <div class="card fade-in fade-in-delay-2">
+          <p class="categoryDesc">Premium devices and flavors, refreshed based on real sales data.</p>
+          <div class="productGrid">
+            <div class="productItem">
+              <img src="assets/geek1.webp" alt="Geek Bar Vape" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="assets/geek2.webp" alt="Geek Bar Vape" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="Geek3.webp" alt="Geek Bar Vape" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Nicotine Pouches -->
+        <div class="productCategory fade-in">
+          <div class="categoryHeader">
             <h3>Nicotine Pouches</h3>
-            <p>Smoke-free options for guests who prefer a discreet alternative.</p>
+            <span class="categoryTag">Smoke-free</span>
           </div>
-          <div class="card fade-in fade-in-delay-3">
+          <p class="categoryDesc">Discreet, smoke-free options for guests who prefer an alternative.</p>
+          <div class="productGrid">
+            <div class="productItem">
+              <img src="zyn.jpeg" alt="ZYN Nicotine Pouches" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="zyn1.jpeg" alt="ZYN Nicotine Pouches" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="zyn2.jpeg" alt="ZYN Nicotine Pouches" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Nightlife Essentials -->
+        <div class="productCategory fade-in">
+          <div class="categoryHeader">
             <h3>Nightlife Essentials</h3>
-            <p>Gum, mints, phone chargers, and other quick-grab items.</p>
+            <span class="categoryTag">Quick grabs</span>
+          </div>
+          <p class="categoryDesc">Gum, mints, phone chargers, and other items guests need in a pinch.</p>
+          <div class="productGrid fourCol">
+            <div class="productItem">
+              <img src="gum.jpeg" alt="Gum" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="mint.jpeg" alt="Mints" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="charger.jpeg" alt="Phone Charger" loading="lazy" />
+            </div>
+            <div class="productItem">
+              <img src="honey.jpeg" alt="Honey Sticks" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
