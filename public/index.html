@@ -132,13 +132,21 @@
     .lead{color:var(--muted); font-size:16px; max-width:62ch; margin:0 0 14px}
     .leadStrong{color:var(--text); font-weight:700; margin:4px 0 12px}
     .ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chips{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+      gap:10px;
+      margin-top:14px;
+    }
     .chip{
       padding:8px 14px; border-radius:12px;
       border:1px solid var(--stroke);
       color:var(--muted); background:var(--panel); font-weight:700; font-size:13px;
       box-shadow: 0 4px 20px rgba(0,0,0,.3);
       transition: all .2s ease;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      min-height:44px;
     }
     .chip:hover{
       border-color: var(--accent2);
@@ -152,6 +160,8 @@
       padding:16px; border-radius:14px; border:1px solid var(--stroke);
       background:var(--panel); box-shadow: var(--shadow);
       transition: all .2s ease;
+      display:flex; flex-direction:column;
+      min-height:104px;
     }
     .stat:hover{
       border-color: var(--accent);
@@ -164,7 +174,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .stat span{color:var(--muted); font-size:13px}
+    .stat span{color:var(--muted); font-size:13px; margin-top:auto}
     .heroVisual{display:flex; justify-content:center; align-items:center}
     .heroShot{
       padding:4px; border-radius:22px;
