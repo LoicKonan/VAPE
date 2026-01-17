@@ -188,12 +188,22 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
       box-shadow: 0 0 40px var(--glow-purple), 0 0 80px var(--glow-cyan);
       max-width:520px; margin:0 auto;
+      transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s ease;
+      cursor: pointer;
+    }
+    .heroShot:hover{
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 60px var(--glow-purple), 0 0 120px var(--glow-cyan), 0 30px 60px rgba(0,0,0,.4);
     }
     .heroShot img{
       border-radius:18px;
       border:none;
       width:100%; height:auto; object-fit:contain;
       background:var(--panel); padding:12px;
+      transition: transform .4s cubic-bezier(.25,.1,.25,1);
+    }
+    .heroShot:hover img{
+      transform: scale(1.03);
     }
     .heroLabel{
       margin-top:6px; display:flex; justify-content:space-between; align-items:center;
@@ -461,113 +471,91 @@
       padding:0 20px 18px;
       color:var(--muted); font-size:14px; line-height:1.7;
     }
-    /* Product Showcase */
-    .productsWrapper{
+    /* Product Showcase - Apple Style */
+    .productSection{
+      text-align: center;
+      padding: 60px 0;
+    }
+    .productSection h2{
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0 0 8px;
+      background: linear-gradient(135deg, var(--text) 30%, var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .productSection .subtitle{
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 50px;
+    }
+    .productDisplay{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .productCategory{
-      background: linear-gradient(145deg, var(--panel), var(--bg-elevated));
-      border: 1px solid var(--stroke);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all .3s ease;
+    .productTile{
       position: relative;
-      overflow: hidden;
+      background: linear-gradient(165deg, rgba(30,30,42,1) 0%, rgba(18,18,26,1) 100%);
+      border-radius: 24px;
+      padding: 48px 24px 24px;
+      transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s ease;
     }
-    .productCategory::before{
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity .3s ease;
+    .productTile:hover{
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,.4), 0 0 40px var(--glow-purple);
     }
-    .productCategory:hover{
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,.3), 0 0 20px var(--glow-purple);
+    .productTile img{
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.3));
+      transition: transform .4s cubic-bezier(.25,.1,.25,1);
     }
-    .productCategory:hover::before{
-      opacity: 1;
+    .productTile:hover img{
+      transform: scale(1.08);
     }
-    .categoryHeader{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 4px;
-    }
-    .categoryHeader h3{
-      margin: 0;
-      font-size: 14px;
+    .productTile h3{
+      margin: 0 0 4px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--text);
     }
-    .categoryTag{
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(6,182,212,.15);
-      color: var(--accent2);
-      font-size: 9px;
+    .productTile p{
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .productTile .badge{
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .5px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      z-index: 10;
     }
-    .categoryDesc{
-      color: var(--muted);
-      font-size: 11px;
-      margin: 0 0 10px;
-      line-height: 1.4;
-    }
-    .productGrid{
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-    }
-    .productItem{
-      background: var(--bg);
-      border: 1px solid var(--stroke);
-      border-radius: 10px;
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .25s ease;
-      flex: 1;
-      max-width: 80px;
-    }
-    .productItem:hover{
-      border-color: var(--accent2);
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0,0,0,.3), 0 0 10px var(--glow-cyan);
-    }
-    .productItem img{
-      width: 100%;
-      height: 55px;
-      object-fit: contain;
-      border-radius: 4px;
-      transition: transform .25s ease;
-    }
-    @media (max-width: 900px){
-      .productsWrapper{
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 560px){
-      .productsWrapper{
+    @media (max-width: 768px){
+      .productSection h2{font-size: 32px}
+      .productSection .subtitle{font-size: 16px; margin-bottom: 36px}
+      .productDisplay{
         grid-template-columns: 1fr;
+        max-width: 320px;
+        gap: 16px;
       }
-      .productCategory{
-        padding: 14px;
-      }
-      .productItem{
-        max-width: 70px;
-      }
-      .productItem img{
-        height: 45px;
-      }
+      .productTile{padding: 24px 20px 20px}
+      .productTile img{height: 120px}
     }
 
     /* Scroll animations */
@@ -707,7 +695,7 @@
         <div class="flowGrid">
           <div class="card fade-in fade-in-delay-1">
             <div class="flowTag">Step 01</div>
-            <h3>Install and brand</h3>
+            <h3>Install</h3>
             <p>Wall-mounted with a bright LED touchscreen and a slim footprint.</p>
             <ul class="flowList">
               <li class="stackItem">
@@ -739,61 +727,30 @@
       </div>
     </section>
 
-    <section id="products">
+    <section id="products" class="productSection">
       <div class="container">
-        <div class="sectionHeader fade-in">
-          <h2>What We Stock</h2>
-          <p>Curated essentials your guests actually want — no clutter, no guesswork.</p>
-        </div>
+        <h2 class="fade-in">What We Stock</h2>
+        <p class="subtitle fade-in">The essentials that keep the night going.</p>
 
-        <!-- Disposable Vapes -->
-        <div class="productCategory fade-in">
-          <div class="categoryHeader">
+        <div class="productDisplay">
+          <div class="productTile fade-in fade-in-delay-1">
+            <span class="badge">Popular</span>
+            <img src="assets/geek1.webp" alt="Geek Bar Vape" />
             <h3>Disposable Vapes</h3>
-            <span class="categoryTag">Top sellers</span>
+            <p>Top-tier flavors and devices</p>
           </div>
-          <p class="categoryDesc">Premium devices and flavors, refreshed based on real sales data.</p>
-          <div class="productGrid twoCol">
-            <div class="productItem">
-              <img src="assets/geek1.webp" alt="Geek Bar Vape" loading="lazy" />
-            </div>
-            <div class="productItem">
-              <img src="assets/geek2.webp" alt="Geek Bar Vape" loading="lazy" />
-            </div>
-          </div>
-        </div>
 
-        <!-- Nicotine Pouches -->
-        <div class="productCategory fade-in">
-          <div class="categoryHeader">
+          <div class="productTile fade-in fade-in-delay-2">
+            <img src="assets/zyn.jpeg" alt="ZYN Pouches" />
             <h3>Nicotine Pouches</h3>
-            <span class="categoryTag">Smoke-free</span>
+            <p>Smoke-free and discreet</p>
           </div>
-          <p class="categoryDesc">Discreet, smoke-free options for guests who prefer an alternative.</p>
-          <div class="productGrid twoCol">
-            <div class="productItem">
-              <img src="assets/zyn.jpeg" alt="ZYN Nicotine Pouches" loading="lazy" />
-            </div>
-            <div class="productItem">
-              <img src="assets/zyn1.jpeg" alt="ZYN Nicotine Pouches" loading="lazy" />
-            </div>
-          </div>
-        </div>
 
-        <!-- Nightlife Essentials -->
-        <div class="productCategory fade-in">
-          <div class="categoryHeader">
-            <h3>Nightlife Essentials</h3>
-            <span class="categoryTag">Quick grabs</span>
-          </div>
-          <p class="categoryDesc">Wellness and other items guests need in a pinch.</p>
-          <div class="productGrid twoCol">
-            <div class="productItem">
-              <img src="assets/chew1.jpeg" alt="BlueChew" loading="lazy" />
-            </div>
-            <div class="productItem">
-              <img src="assets/chew3.jpeg" alt="BlueChew" loading="lazy" />
-            </div>
+          <div class="productTile fade-in fade-in-delay-3">
+            <span class="badge">21+</span>
+            <img src="assets/chew1.jpeg" alt="BlueChew" />
+            <h3>Wellness</h3>
+            <p>What guests need, when they need it</p>
           </div>
         </div>
       </div>
