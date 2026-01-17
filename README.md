@@ -12,10 +12,13 @@ Veteran-owned nightlife vending experience for bars, clubs, and casinos in San A
 - Or open `public/index.html` directly in a browser.
 
 ## Project structure
-- `public/index.html` — Landing page and all UI copy.
-- `public/V1.jpeg` — Machine hero shot.
-- `public/V2.jpeg` — Packaging/merchandising photo.
-- `public/V5.webp` — Device colorways photo.
+```
+public/
+├── assets/          — All images (logo, products, gallery)
+├── index.html       — Landing page and all UI/CSS/JS
+├── robots.txt       — Search engine directives
+└── sitemap.xml      — Sitemap for SEO
+```
 
 ## Customization
 - Update the contact email/phone in the CTA to your real details.
@@ -25,9 +28,9 @@ Veteran-owned nightlife vending experience for bars, clubs, and casinos in San A
 - Swap images by replacing files or updating the `gallery` section in the HTML.
 
 ## Gallery
-![Machine hero shot](public/V1.jpeg)
-![Packaging and merchandising](public/V2.jpeg)
-![Device colorways](public/V5.webp)
+![Machine hero shot](public/assets/V1.jpeg)
+![Packaging and merchandising](public/assets/V2.jpeg)
+![Device colorways](public/assets/V5.webp)
 
 ## Compliance note
 - Positioned for adult (21+) venues. Ensure age verification, applicable federal/state/local rules, and product restrictions are met before deploying.
