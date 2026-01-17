@@ -132,25 +132,32 @@
     .lead{color:var(--muted); font-size:16px; max-width:62ch; margin:0 0 14px}
     .leadStrong{color:var(--text); font-weight:700; margin:4px 0 12px}
     .ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .chips{
+    .featureGrid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
-      gap:10px;
-      margin-top:14px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:16px;
     }
-    .chip{
-      padding:8px 14px; border-radius:12px;
+    .featureCard{
+      position:relative;
+      padding:14px 16px;
+      border-radius:14px;
       border:1px solid var(--stroke);
-      color:var(--muted); background:var(--panel); font-weight:700; font-size:13px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.3);
-      transition: all .2s ease;
-      display:flex; align-items:center; justify-content:center;
-      text-align:center;
-      min-height:44px;
+      background:linear-gradient(180deg, rgba(22,22,31,.95), rgba(18,18,26,.9));
+      color:var(--text);
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.2px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.35);
     }
-    .chip:hover{
-      border-color: var(--accent2);
-      box-shadow: 0 0 15px var(--glow-cyan);
+    .featureCard::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:3px;
+      border-radius:14px 14px 0 0;
+      background:linear-gradient(90deg, var(--accent2), var(--accent));
+      opacity:.9;
     }
     .statRow{
       display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
@@ -384,6 +391,7 @@
     @media (max-width: 720px){
       .container{width:min(100%, 100% - 28px)}
       h1{font-size:30px}
+      .featureGrid{grid-template-columns:1fr}
       .statRow{grid-template-columns: repeat(2, minmax(0,1fr))}
       .gallery img{height:240px}
       .contactGrid{grid-template-columns:1fr}
@@ -525,10 +533,10 @@
           <div class="pill">Veteran-owned • Texas</div>
           <h1>Nightlife vending that keeps customers on-site and revenue in-house.</h1>
           <p class="lead">We mount sleek, ID-verified machines in high-traffic bars, clubs, and casinos for quick essentials without a walkout.</p>
-          <div class="chips">
-            <span class="chip">Cashless checkout</span>
-            <span class="chip">Curated nightly essentials</span>
-            <span class="chip">Remote monitoring + restocks</span>
+          <div class="featureGrid">
+            <div class="featureCard">Cashless checkout</div>
+            <div class="featureCard">Curated nightly essentials</div>
+            <div class="featureCard">Remote monitoring + restocks</div>
           </div>
           <div class="statRow">
             <div class="stat">
@@ -738,13 +746,13 @@
           <div class="contactGrid">
             <div class="contactCopy">
               <h3>Ready for a placement?</h3>
-              <p>Tell us your venue name, city, and best contact. We'll confirm compliance, placement options, and launch dates.</p>
+              <p>Share your venue name, city, and best contact. We'll confirm compliance, placement options, and launch timing.</p>
               <div class="ctaRow">
                 <a class="btn primary" href="mailto:loickonan.lk@gmail.com?subject=PulseVend%20Placement%20Inquiry&body=Venue%20Name:%0ACity:%0AContact%20Name:%0AWhat%20you%27re%20looking%20for:" data-track="CTA Click" data-location="contact_email">Email loickonan.lk@gmail.com</a>
                 <a class="btn" href="tel:+18176815136" data-track="CTA Click" data-location="contact_phone">Call: (817) 681-5136</a>
               </div>
               <div class="tiny contactNote">
-                Compliance note: We follow federal and state/local rules for tobacco and vapor products (including FDA regulations). Placement is limited to venues that permit age-restricted products; venue policies apply. Veteran-owned, locally operated in San Antonio.
+                Compliance note: We follow federal and state/local tobacco and vapor regulations. Placement is limited to 21+ venues and venue policies apply. Veteran-owned, locally operated in San Antonio.
               </div>
             </div>
             <form
