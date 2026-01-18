@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Keep guests inside with nightlife vending that runs itself. ID-gated, cashless, fully serviced." />
   <meta name="twitter:image" content="https://pulsevend.vercel.app/assets/V1.jpeg" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23a855f7'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230a84ff'/><stop offset='100%25' stop-color='%235ac8fa'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
@@ -31,21 +31,21 @@
   <script defer data-domain="pulsevend.vercel.app" src="https://plausible.io/js/script.js"></script>
   <style>
     :root{
-      --bg:#0a0a0f;
-      --bg-elevated:#12121a;
-      --panel:#16161f;
-      --panel-soft:#1e1e2a;
-      --text:#f0f0f5;
-      --muted:#8b8b9e;
+      --bg:#0b0f14;
+      --bg-elevated:#111722;
+      --panel:#151c2b;
+      --panel-soft:#1b2436;
+      --text:#e9eef6;
+      --muted:#8f99aa;
       --stroke:rgba(255,255,255,.08);
-      --accent:#a855f7;
-      --accent2:#06b6d4;
-      --accent3:#ec4899;
-      --glow-purple:rgba(168,85,247,.4);
-      --glow-cyan:rgba(6,182,212,.4);
-      --glow-pink:rgba(236,72,153,.3);
+      --accent:#0a84ff;
+      --accent2:#5ac8fa;
+      --accent3:#34c759;
+      --glow-purple:rgba(10,132,255,.4);
+      --glow-cyan:rgba(90,200,250,.35);
+      --glow-pink:rgba(52,199,89,.25);
       --radius:18px;
-      --shadow:0 20px 50px rgba(0,0,0,.5);
+      --shadow:0 18px 40px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
     @keyframes gradientMove{
@@ -78,9 +78,9 @@
       position:fixed;
       top:0;left:0;right:0;bottom:0;
       background:
-        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(168,85,247,.25), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(6,182,212,.2), transparent),
-        radial-gradient(ellipse 70% 50% at 50% 90%, rgba(236,72,153,.15), transparent);
+        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(10,132,255,.14), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(90,200,250,.12), transparent),
+        radial-gradient(ellipse 70% 50% at 50% 90%, rgba(52,199,89,.08), transparent);
       background-size: 200% 200%;
       animation: gradientMove 15s ease infinite;
       pointer-events:none;
@@ -96,9 +96,9 @@
       position:sticky; top:0; z-index:30;
       -webkit-backdrop-filter: blur(26px) saturate(170%);
       backdrop-filter: blur(26px) saturate(170%);
-      background: rgba(14,14,20,.55);
+      background: rgba(10,14,20,.78);
       border-bottom:1px solid rgba(255,255,255,.08);
-      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      box-shadow: 0 6px 18px rgba(0,0,0,.4);
     }
     .nav{
       position:relative;
@@ -108,10 +108,10 @@
       padding:6px 12px;
       margin:6px 0;
       gap:16px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
+      background: rgba(17,23,34,.85);
+      border:1px solid rgba(255,255,255,.08);
       border-radius:999px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.22);
+      box-shadow: 0 8px 20px rgba(0,0,0,.35);
     }
     .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px; font-size:14px}
     .brandLogo{
@@ -127,7 +127,7 @@
       gap:14px;
       align-items:center;
       font-weight:600;
-      color:rgba(240,240,245,.7);
+      color:rgba(233,238,246,.7);
       font-size:12.5px;
       letter-spacing:.2px;
     }
@@ -138,7 +138,7 @@
     }
     .links a:hover{
       color:var(--text);
-      background: rgba(255,255,255,.06);
+      background: rgba(10,132,255,.14);
       transform: translateY(-1px);
     }
     .navCta{
@@ -149,28 +149,28 @@
       letter-spacing:.3px;
       text-transform:uppercase;
       background: transparent;
-      border:1px solid rgba(255,255,255,.22);
-      color:rgba(240,240,245,.95);
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--text);
       display:inline-flex;
       align-items:center;
       gap:5px;
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
-      box-shadow: 0 8px 18px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+      box-shadow: 0 8px 18px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
       overflow:hidden;
     }
     .navCta::after{
       content:"";
       position:absolute;
       inset:-1px;
-      background: linear-gradient(120deg, rgba(255,255,255,.18), rgba(255,255,255,0) 55%);
+      background: linear-gradient(120deg, rgba(255,255,255,.2), rgba(255,255,255,0) 55%);
       opacity:.55;
       pointer-events:none;
     }
     .navCta:hover{
       transform: translateY(-1px);
-      border-color: rgba(255,255,255,.35);
-      box-shadow: 0 10px 22px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.28);
+      box-shadow: 0 10px 22px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.16);
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -180,7 +180,7 @@
       color:var(--text); font-weight:700; font-size:14px; letter-spacing:.2px;
       transition: all .25s ease;
       cursor:pointer; gap:8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      box-shadow: 0 6px 18px rgba(15,23,42,.12);
       font-family:inherit;
     }
     .btn:hover{
@@ -191,12 +191,12 @@
     .btn.primary{
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       border:none;
-      box-shadow: 0 0 30px var(--glow-purple), 0 4px 20px rgba(0,0,0,.4);
+      box-shadow: 0 0 24px var(--glow-purple), 0 6px 18px rgba(15,23,42,.14);
       color:#fff;
     }
     .btn.primary:hover{
       transform: translateY(-2px);
-      box-shadow: 0 0 40px var(--glow-purple), 0 0 60px var(--glow-cyan), 0 8px 30px rgba(0,0,0,.4);
+      box-shadow: 0 0 36px var(--glow-purple), 0 0 50px var(--glow-cyan), 0 10px 24px rgba(15,23,42,.18);
     }
     main{padding:22px 0 60px}
     section{padding:36px 0}
@@ -208,7 +208,7 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 14px; border-radius:999px;
       border:1px solid var(--accent);
-      background:rgba(168,85,247,.1);
+      background:rgba(10,132,255,.12);
       color:var(--accent); font-weight:700; font-size:13px;
       box-shadow: 0 0 20px var(--glow-purple);
     }
@@ -259,7 +259,7 @@
     .heroShot:hover{
       animation-play-state: paused;
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 0 60px var(--glow-purple), 0 0 120px var(--glow-cyan), 0 30px 60px rgba(0,0,0,.4);
+      box-shadow: 0 0 60px var(--glow-purple), 0 0 120px var(--glow-cyan), 0 30px 60px rgba(15,23,42,.18);
       transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s ease;
     }
     .heroShot img{
@@ -315,7 +315,7 @@
     .flowTag{
       display:inline-flex; align-items:center; gap:6px;
       padding:6px 12px; border-radius:999px;
-      background:linear-gradient(135deg, rgba(168,85,247,.2), rgba(6,182,212,.2));
+      background:linear-gradient(135deg, rgba(10,132,255,.16), rgba(90,200,250,.16));
       color:var(--accent2);
       font-weight:700; font-size:12px; border:1px solid var(--accent2);
       margin-bottom:12px;
@@ -348,7 +348,7 @@
     }
     .gallery figcaption{
       position:absolute; inset:0;
-      background:linear-gradient(180deg, transparent 40%, rgba(10,10,15,.9));
+      background:linear-gradient(180deg, transparent 40%, rgba(8,12,18,.85));
       padding:16px; color:#fff; display:flex; align-items:flex-end; justify-content:center;
       text-align:center;
       font-weight:700; letter-spacing:.2px; font-size:14px;
@@ -393,14 +393,14 @@
     .field::placeholder{color:var(--muted); transition: opacity .2s ease}
     .field:focus::placeholder{opacity:0.5}
     .field:hover{
-      border-color: rgba(168,85,247,.4);
-      background: rgba(18,18,26,.8);
+      border-color: rgba(10,132,255,.35);
+      background: var(--panel-soft);
     }
     .field:focus{
       outline:none;
       border-color: var(--accent);
-      box-shadow: 0 0 20px var(--glow-purple), 0 0 40px rgba(168,85,247,.15);
-      background: rgba(18,18,26,1);
+      box-shadow: 0 0 20px var(--glow-purple), 0 0 40px rgba(10,132,255,.15);
+      background: var(--bg-elevated);
       transform: translateY(-1px);
     }
     .formField{
@@ -439,7 +439,7 @@
       position:relative;
       padding:50px 0 36px;
       border-top:1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(18,18,26,.96), rgba(10,10,15,.98));
+      background: linear-gradient(180deg, rgba(14,18,28,.98), rgba(9,12,18,.98));
       overflow:hidden;
     }
     footer::before{
@@ -449,7 +449,7 @@
       right:-120px;
       width:280px;
       height:280px;
-      background: radial-gradient(circle, rgba(6,182,212,.25), transparent 70%);
+      background: radial-gradient(circle, rgba(90,200,250,.2), transparent 70%);
       filter: blur(10px);
       opacity:.8;
       pointer-events:none;
@@ -462,7 +462,7 @@
       left:-120px;
       width:320px;
       height:320px;
-      background: radial-gradient(circle, rgba(168,85,247,.25), transparent 70%);
+      background: radial-gradient(circle, rgba(10,132,255,.18), transparent 70%);
       filter: blur(8px);
       opacity:.7;
       pointer-events:none;
@@ -471,7 +471,7 @@
     .footerPanel{
       position:relative;
       padding:22px 24px 18px;
-      background: linear-gradient(145deg, rgba(22,22,31,.94), rgba(18,18,26,.9));
+      background: linear-gradient(145deg, rgba(18,24,36,.94), rgba(13,18,27,.9));
       border:1px solid rgba(255,255,255,.08);
       border-radius:24px;
       box-shadow: var(--shadow);
@@ -518,9 +518,9 @@
       gap:6px;
       padding:6px 12px;
       border-radius:999px;
-      background:rgba(6,182,212,.08);
-      border:1px solid rgba(6,182,212,.45);
-      color:var(--accent2);
+      background:rgba(90,200,250,.12);
+      border:1px solid rgba(90,200,250,.5);
+      color:var(--accent);
       font-size:11px;
       font-weight:700;
     }
@@ -554,7 +554,7 @@
       justify-content:space-between;
       align-items:center;
       padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.06);
+      border-top:1px solid var(--stroke);
       color:var(--muted);
       font-size:12px;
       gap:16px;
@@ -569,7 +569,7 @@
       display:flex;align-items:center;justify-content:center;
       border-radius:12px;
       background:var(--panel);
-      border:1px solid rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
       color:var(--muted);
       transition:all .2s ease;
       position:relative;
@@ -604,8 +604,8 @@
     .menuToggle{
       display:none;
       width:34px; height:34px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
+      background: rgba(20,26,38,.85);
+      border:1px solid rgba(255,255,255,.12);
       border-radius:999px;
       cursor:pointer;
       padding:0;
@@ -626,11 +626,11 @@
       .links{
         display:none;
         position:absolute; top:calc(100% + 10px); left:0; right:0;
-        background:rgba(24,24,32,.95);
+        background:rgba(15,20,30,.95);
         -webkit-backdrop-filter:blur(20px);
         backdrop-filter:blur(20px);
         flex-direction:column; padding:16px 18px; gap:10px;
-        border:1px solid rgba(255,255,255,.12);
+        border:1px solid rgba(255,255,255,.1);
         border-radius:18px;
         box-shadow: 0 14px 36px rgba(0,0,0,.45);
       }
@@ -638,7 +638,7 @@
       .links a{
         padding:10px 12px;
         font-size:15px;
-        background: rgba(255,255,255,.03);
+        background: rgba(10,132,255,.12);
         border-radius:12px;
       }
     }
@@ -745,21 +745,21 @@
     }
     .productTile{
       position: relative;
-      background: linear-gradient(165deg, rgba(30,30,42,1) 0%, rgba(18,18,26,1) 100%);
+      background: linear-gradient(165deg, rgba(24,32,46,1) 0%, rgba(17,23,34,1) 100%);
       border-radius: 24px;
       padding: 48px 24px 24px;
       transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s ease;
     }
     .productTile:hover{
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0,0,0,.4), 0 0 40px var(--glow-purple);
+      box-shadow: 0 30px 60px rgba(0,0,0,.5), 0 0 40px var(--glow-purple);
     }
     .productTile img{
       width: 100%;
       height: 140px;
       object-fit: contain;
       margin-bottom: 20px;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.3));
+      filter: drop-shadow(0 10px 18px rgba(15,23,42,.18));
       transition: transform .4s cubic-bezier(.25,.1,.25,1);
     }
     .productTile:hover img{
@@ -918,7 +918,7 @@
       color: var(--muted);
     }
     .calcResult{
-      background: linear-gradient(135deg, rgba(168,85,247,.1), rgba(6,182,212,.1));
+      background: linear-gradient(135deg, rgba(10,132,255,.08), rgba(90,200,250,.08));
       border: 1px solid var(--accent);
       border-radius: 14px;
       padding: 20px;
@@ -998,7 +998,7 @@
       <div class="container heroGrid">
         <div>
           <div class="pill">Veteran-owned • Texas</div>
-          <h1>Turn wall space into passive income.</h1>
+          <h1>Turn unused wall space into passive income.</h1>
           <p class="lead">Turnkey vending for high-traffic nightlife venues. ID-verified, fully managed, zero operational lift. You earn passive revenue while we handle everything.</p>
           <div class="statRow">
             <div class="stat">
