@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Keep guests inside with nightlife vending that runs itself. ID-gated, cashless, fully serviced." />
   <meta name="twitter:image" content="https://pulsevend.vercel.app/assets/V1.jpeg" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%232dd4bf'/><stop offset='100%25' stop-color='%2322d3ee'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2300f5d4'/><stop offset='100%25' stop-color='%2338f2ff'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,12 +38,12 @@
       --text:#e9eef6;
       --muted:#8f99aa;
       --stroke:rgba(255,255,255,.08);
-      --accent:#2dd4bf;
-      --accent2:#22d3ee;
-      --accent3:#6ee7b7;
-      --glow-purple:rgba(45,212,191,.4);
-      --glow-cyan:rgba(34,211,238,.35);
-      --glow-pink:rgba(110,231,183,.25);
+      --accent:#00f5d4;
+      --accent2:#38f2ff;
+      --accent3:#ff6b8a;
+      --glow-purple:rgba(0,245,212,.45);
+      --glow-cyan:rgba(56,242,255,.35);
+      --glow-pink:rgba(255,107,138,.14);
       --radius:18px;
       --shadow:0 18px 40px rgba(0,0,0,.45);
     }
@@ -78,9 +78,9 @@
       position:fixed;
       top:0;left:0;right:0;bottom:0;
       background:
-        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(45,212,191,.16), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(34,211,238,.14), transparent),
-        radial-gradient(ellipse 70% 50% at 50% 90%, rgba(110,231,183,.1), transparent);
+        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(0,245,212,.16), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(56,242,255,.14), transparent),
+        radial-gradient(ellipse 70% 50% at 50% 90%, rgba(255,107,138,.05), transparent);
       background-size: 200% 200%;
       animation: gradientMove 15s ease infinite;
       pointer-events:none;
@@ -143,20 +143,20 @@
     }
     .navCta{
       position:relative;
-      padding:5px 12px;
+      padding:6px 14px;
       border-radius:999px;
-      font-size:10.5px;
-      letter-spacing:.3px;
-      text-transform:uppercase;
-      background: transparent;
-      border:1px solid rgba(255,255,255,.18);
-      color:var(--text);
+      font-size:12px;
+      letter-spacing:.2px;
+      text-transform:none;
+      background: rgba(0,245,212,.22);
+      border:1px solid rgba(0,245,212,.55);
+      color:#0b0d12;
       display:inline-flex;
       align-items:center;
       gap:5px;
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
-      box-shadow: 0 8px 18px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
+      box-shadow: 0 8px 18px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12);
       overflow:hidden;
     }
     .navCta::after{
@@ -169,8 +169,8 @@
     }
     .navCta:hover{
       transform: translateY(-1px);
-      border-color: rgba(255,255,255,.28);
-      box-shadow: 0 10px 22px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.16);
+      border-color: rgba(0,245,212,.7);
+      box-shadow: 0 10px 22px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.2);
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -193,6 +193,7 @@
       border:none;
       box-shadow: 0 0 24px var(--glow-purple), 0 6px 18px rgba(15,23,42,.14);
       color:#fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,.45);
     }
     .btn.primary:hover{
       transform: translateY(-2px);
@@ -209,7 +210,7 @@
       padding:8px 14px; border-radius:999px;
       border:1px solid var(--accent);
       background:rgba(10,132,255,.12);
-      color:var(--accent); font-weight:700; font-size:13px;
+      color:#0b0d12; font-weight:700; font-size:13px;
       box-shadow: 0 0 20px var(--glow-purple);
     }
     h1{
@@ -316,7 +317,7 @@
       display:inline-flex; align-items:center; gap:6px;
       padding:6px 12px; border-radius:999px;
       background:linear-gradient(135deg, rgba(10,132,255,.16), rgba(90,200,250,.16));
-      color:var(--accent2);
+      color:#0b0d12;
       font-weight:700; font-size:12px; border:1px solid var(--accent2);
       margin-bottom:12px;
       box-shadow: 0 0 10px var(--glow-cyan);
@@ -520,7 +521,7 @@
       border-radius:999px;
       background:rgba(90,200,250,.12);
       border:1px solid rgba(90,200,250,.5);
-      color:var(--accent);
+      color:#0b0d12;
       font-size:11px;
       font-weight:700;
     }
@@ -540,7 +541,7 @@
     }
     .footerCol a{
       display:block;
-      color:var(--muted);
+      color:rgba(233,238,246,.78);
       font-size:14px;
       padding:6px 0;
       transition:color .2s ease, transform .2s ease;
@@ -782,12 +783,13 @@
       right: 16px;
       padding: 4px 10px;
       border-radius: 20px;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .5px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff;
+      background: linear-gradient(135deg, rgba(0,245,212,.95), rgba(56,242,255,.95));
+      color: #0b0d12;
+      border: 1px solid rgba(0,0,0,.25);
       z-index: 10;
     }
     @media (max-width: 768px){
