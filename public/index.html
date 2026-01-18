@@ -209,16 +209,6 @@
     .heroShot:hover img{
       transform: scale(1.03);
     }
-    .heroLabel{
-      margin-top:6px; display:flex; justify-content:space-between; align-items:center;
-      color:var(--muted); font-size:13px; font-weight:700;
-      padding:6px 12px; background:var(--panel-soft); border-radius:10px;
-      border:1px solid var(--stroke);
-      transform: translateY(-4px);
-    }
-    .heroLabelStrong{
-      color:var(--accent); font-weight:700;
-    }
     .sectionHeader{
       display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap;
       margin-bottom:16px;
@@ -708,6 +698,167 @@
       .cursor{display: none}
     }
 
+    /* Revenue Calculator */
+    .calculatorSection{
+      padding: 60px 0;
+      text-align: center;
+    }
+    .calculatorSection h2{
+      font-size: 36px;
+      margin: 0 0 8px;
+      background: linear-gradient(135deg, var(--text), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .calculatorSection .subtitle{
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 32px;
+    }
+    .calculator{
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 28px;
+      text-align: left;
+    }
+    .calcField{
+      margin-bottom: 20px;
+    }
+    .calcField label{
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .calcField input[type="range"]{
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--bg-elevated);
+      appearance: none;
+      outline: none;
+    }
+    .calcField input[type="range"]::-webkit-slider-thumb{
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--glow-purple);
+    }
+    .calcValue{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .calcValue span{
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .calcValue small{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .calcResult{
+      background: linear-gradient(135deg, rgba(168,85,247,.1), rgba(6,182,212,.1));
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .calcResult p{
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .calcResult strong{
+      font-size: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .calcResult small{
+      display: block;
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Comparison Table */
+    .comparisonSection{
+      padding: 60px 0;
+    }
+    .comparisonSection h2{
+      font-size: 36px;
+      margin: 0 0 8px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--text), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .comparisonSection .subtitle{
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 32px;
+      text-align: center;
+    }
+    .compTable{
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+    }
+    .compTable th, .compTable td{
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--stroke);
+    }
+    .compTable th{
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      background: var(--bg-elevated);
+    }
+    .compTable th:first-child{
+      color: var(--text);
+    }
+    .compTable td{
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .compTable tr:last-child td{border-bottom: none}
+    .compTable td:first-child{
+      font-weight: 700;
+      color: var(--text);
+    }
+    .compTable .highlight{
+      background: linear-gradient(135deg, rgba(168,85,247,.08), rgba(6,182,212,.08));
+    }
+    .compTable .highlight td{
+      color: var(--text);
+    }
+    .compTable .check{color: #10b981}
+    .compTable .cross{color: #ef4444}
+    @media (max-width: 768px){
+      .compTable{font-size: 13px}
+      .compTable th, .compTable td{padding: 12px 14px}
+    }
+
     /* Floating CTA */
     .floatingCta{
       position: fixed;
@@ -784,8 +935,8 @@
         </button>
         <nav class="links" aria-label="Primary">
           <a href="#how">Why it works</a>
+          <a href="#calculator">Calculator</a>
           <a href="#products">Products</a>
-          <a href="#gallery">Gallery</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -800,7 +951,7 @@
         <div>
           <div class="pill">Veteran-owned • Texas</div>
           <h1>Turn wall space into passive income.</h1>
-          <p class="lead">We mount sleek, ID-verified machines in high-traffic bars, clubs, and casinos for quick essentials without a walkout.</p>
+          <p class="lead">Turnkey vending for high-traffic nightlife venues. ID-verified, fully managed, zero operational lift. You earn passive revenue while we handle everything.</p>
           <div class="statRow">
             <div class="stat">
               <strong><span class="counter" data-target="48" data-suffix=" hrs or less">0</span></strong>
@@ -820,10 +971,6 @@
         <div class="heroVisual">
           <div class="heroShot">
             <img src="assets/V5.webp" alt="Curated colorways of device finishes" />
-            <div class="heroLabel">
-              <span>Modern footprint</span>
-              <span class="heroLabelStrong">PulseVend</span>
-            </div>
           </div>
         </div>
       </div>
@@ -833,20 +980,20 @@
       <div class="container">
         <div class="sectionHeader fade-in">
           <h2>Why venues say yes</h2>
-          <p>Increase dwell time, add found revenue, and avoid staff distraction.</p>
+          <p>Increase dwell time, capture peak-hour revenue, and keep operations smooth.</p>
         </div>
         <div class="gridCards">
           <div class="card fade-in fade-in-delay-1">
             <h3>Reduces walkouts</h3>
-            <p>Guests do not step out for nicotine or essentials during peak hours.</p>
+            <p>Keep guests on-site during peak hours. No more losing customers to convenience store runs.</p>
           </div>
           <div class="card fade-in fade-in-delay-2">
             <h3>No staffing burden</h3>
             <p>Your team does not sell, stock, or troubleshoot the machine.</p>
           </div>
           <div class="card fade-in fade-in-delay-3">
-            <h3>Transparent payouts</h3>
-            <p>Monthly revenue share with straightforward payout statements.</p>
+            <h3>Passive revenue stream</h3>
+            <p>Monthly revenue share deposited directly. Zero inventory risk, zero operational lift.</p>
           </div>
         </div>
       </div>
@@ -856,7 +1003,7 @@
       <div class="container">
         <div class="sectionHeader fade-in">
           <h2>How we run it</h2>
-          <p>Turnkey operations that run quietly so staff stays hands-free.</p>
+          <p>End-to-end operations. Your staff stays focused on guests, not vending.</p>
         </div>
         <div class="flowGrid">
           <div class="card fade-in fade-in-delay-1">
@@ -890,6 +1037,103 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Revenue Calculator -->
+    <section id="calculator" class="calculatorSection">
+      <div class="container">
+        <h2 class="fade-in">Estimate Your Revenue</h2>
+        <p class="subtitle fade-in">See what passive income could look like for your venue.</p>
+
+        <div class="calculator fade-in">
+          <div class="calcField">
+            <label>Weekly Foot Traffic</label>
+            <input type="range" id="trafficSlider" min="500" max="10000" value="2000" step="100" />
+            <div class="calcValue">
+              <span id="trafficValue">2,000</span>
+              <small>guests per week</small>
+            </div>
+          </div>
+
+          <div class="calcField">
+            <label>Estimated Conversion Rate</label>
+            <input type="range" id="conversionSlider" min="1" max="10" value="3" step="0.5" />
+            <div class="calcValue">
+              <span id="conversionValue">3%</span>
+              <small>of guests purchase</small>
+            </div>
+          </div>
+
+          <div class="calcResult">
+            <p>Your estimated monthly revenue share</p>
+            <strong>$<span id="revenueResult">216</span></strong>
+            <small>Based on average transaction value and standard revenue share. Actual results vary.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section id="compare" class="comparisonSection">
+      <div class="container">
+        <h2 class="fade-in">Why PulseVend?</h2>
+        <p class="subtitle fade-in">See how we compare to other revenue options.</p>
+
+        <table class="compTable fade-in">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>PulseVend</th>
+              <th>Staff Sales</th>
+              <th>Outside Vending</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td>Staff Labor Required</td>
+              <td><span class="check">✓</span> None</td>
+              <td><span class="cross">✗</span> High</td>
+              <td><span class="check">✓</span> None</td>
+            </tr>
+            <tr>
+              <td>Upfront Cost</td>
+              <td><span class="check">✓</span> $0</td>
+              <td><span class="cross">✗</span> Inventory + training</td>
+              <td><span class="check">✓</span> $0</td>
+            </tr>
+            <tr class="highlight">
+              <td>Keeps Guests Inside</td>
+              <td><span class="check">✓</span> Yes</td>
+              <td><span class="check">✓</span> Yes</td>
+              <td><span class="cross">✗</span> No - they leave</td>
+            </tr>
+            <tr>
+              <td>ID Verification</td>
+              <td><span class="check">✓</span> Automatic</td>
+              <td><span class="cross">✗</span> Manual</td>
+              <td><span class="cross">✗</span> Often none</td>
+            </tr>
+            <tr class="highlight">
+              <td>Inventory Risk</td>
+              <td><span class="check">✓</span> We handle it</td>
+              <td><span class="cross">✗</span> You buy it</td>
+              <td><span class="check">✓</span> Vendor handles</td>
+            </tr>
+            <tr>
+              <td>Compliance & Licensing</td>
+              <td><span class="check">✓</span> Fully handled</td>
+              <td><span class="cross">✗</span> Your responsibility</td>
+              <td><span class="cross">✗</span> Often unclear</td>
+            </tr>
+            <tr class="highlight">
+              <td>Revenue Share</td>
+              <td><span class="check">✓</span> Monthly payouts</td>
+              <td><span class="check">✓</span> Keep profits</td>
+              <td><span class="cross">✗</span> Usually none</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -1034,13 +1278,16 @@
           <div class="contactGrid">
             <div class="contactCopy">
               <h3>Ready for a placement?</h3>
-              <p>Share your venue name, city, and best contact. We'll confirm compliance, placement options, and launch timing.</p>
+              <p>Book a quick call or fill out the form. We'll discuss your venue, answer questions, and get you set up.</p>
               <div class="ctaRow">
-                <a class="btn primary" href="mailto:loickonan.lk@gmail.com?subject=PulseVend%20Placement%20Inquiry&body=Venue%20Name:%0ACity:%0AContact%20Name:%0AWhat%20you%27re%20looking%20for:" data-track="CTA Click" data-location="contact_email">Email loickonan.lk@gmail.com</a>
-                <a class="btn" href="tel:+18176815136" data-track="CTA Click" data-location="contact_phone">Call: (817) 681-5136</a>
+                <a class="btn primary" href="https://calendly.com/YOUR-LINK" target="_blank" data-track="CTA Click" data-location="calendly">📅 Book a 15-Min Call</a>
+                <a class="btn" href="tel:+18176815136" data-track="CTA Click" data-location="contact_phone">📞 (817) 681-5136</a>
+              </div>
+              <div class="ctaRow" style="margin-top: 12px">
+                <a class="btn" href="assets/PulseVend-Sell-Sheet.pdf" download data-track="CTA Click" data-location="sell_sheet">📄 Download Sell Sheet</a>
               </div>
               <div class="tiny contactNote">
-                Compliance note: We follow federal and state/local tobacco and vapor regulations. Placement is limited to 21+ venues and venue policies apply. Veteran-owned, locally operated in San Antonio.
+                Compliance note: We follow federal and state/local tobacco and vapor regulations. Placement is limited to 21+ venues and venue policies apply. Veteran-owned, proudly serving venues across Texas.
               </div>
             </div>
             <form
@@ -1202,6 +1449,33 @@
       });
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
     fadeElements.forEach(el => observer.observe(el));
+
+    // Revenue Calculator
+    const trafficSlider = document.getElementById('trafficSlider');
+    const conversionSlider = document.getElementById('conversionSlider');
+    const trafficValue = document.getElementById('trafficValue');
+    const conversionValue = document.getElementById('conversionValue');
+    const revenueResult = document.getElementById('revenueResult');
+
+    function calculateRevenue() {
+      const traffic = parseInt(trafficSlider.value);
+      const conversion = parseFloat(conversionSlider.value) / 100;
+      const avgTransaction = 12; // Average transaction value
+      const revenueShare = 0.15; // 15% revenue share to venue
+      const weeksPerMonth = 4.33;
+
+      const monthlyRevenue = Math.round(traffic * conversion * avgTransaction * revenueShare * weeksPerMonth);
+
+      trafficValue.textContent = traffic.toLocaleString();
+      conversionValue.textContent = conversionSlider.value + '%';
+      revenueResult.textContent = monthlyRevenue.toLocaleString();
+    }
+
+    if (trafficSlider && conversionSlider) {
+      trafficSlider.addEventListener('input', calculateRevenue);
+      conversionSlider.addEventListener('input', calculateRevenue);
+      calculateRevenue();
+    }
 
     // Custom cursor
     const cursor = document.querySelector('.cursor');
