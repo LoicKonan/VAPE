@@ -57,6 +57,10 @@
       from{opacity:0;transform:translateY(30px)}
       to{opacity:1;transform:translateY(0)}
     }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-12px)}
+    }
     body{
       margin:0;
       font-family:'Space Grotesk','Manrope',system-ui,-apple-system,sans-serif;
@@ -157,34 +161,6 @@
     }
     .lead{color:var(--muted); font-size:18px; max-width:56ch; margin:0 0 20px; line-height:1.6}
     .ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .featureGrid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:12px;
-      margin-top:16px;
-    }
-    .featureCard{
-      position:relative;
-      padding:14px 16px;
-      border-radius:14px;
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(22,22,31,.95), rgba(18,18,26,.9));
-      color:var(--text);
-      font-weight:700;
-      font-size:13px;
-      letter-spacing:.2px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.35);
-      text-align:center;
-    }
-    .featureCard::before{
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0;
-      height:3px;
-      border-radius:14px 14px 0 0;
-      background:linear-gradient(90deg, var(--accent2), var(--accent));
-      opacity:.9;
-    }
     .statRow{
       display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
       gap:14px; margin-top:18px;
@@ -214,12 +190,14 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
       box-shadow: 0 0 40px var(--glow-purple), 0 0 80px var(--glow-cyan);
       max-width:520px; margin:0 auto;
-      transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s ease;
       cursor: pointer;
+      animation: float 4s ease-in-out infinite;
     }
     .heroShot:hover{
+      animation-play-state: paused;
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 0 60px var(--glow-purple), 0 0 120px var(--glow-cyan), 0 30px 60px rgba(0,0,0,.4);
+      transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s ease;
     }
     .heroShot img{
       border-radius:18px;
@@ -356,13 +334,30 @@
       padding:12px 14px;
       font-family:inherit; font-size:14px; color:var(--text);
       background:var(--bg-elevated);
-      transition: all .2s ease;
+      transition: all .3s cubic-bezier(.25,.1,.25,1);
+      position: relative;
     }
-    .field::placeholder{color:var(--muted)}
+    .field::placeholder{color:var(--muted); transition: opacity .2s ease}
+    .field:focus::placeholder{opacity:0.5}
+    .field:hover{
+      border-color: rgba(168,85,247,.4);
+      background: rgba(18,18,26,.8);
+    }
     .field:focus{
       outline:none;
       border-color: var(--accent);
-      box-shadow: 0 0 15px var(--glow-purple);
+      box-shadow: 0 0 20px var(--glow-purple), 0 0 40px rgba(168,85,247,.15);
+      background: rgba(18,18,26,1);
+      transform: translateY(-1px);
+    }
+    .formField{
+      position: relative;
+    }
+    .formField label{
+      transition: all .2s ease;
+    }
+    .formField:focus-within label{
+      color: var(--accent);
     }
     .formActions{
       display:flex; gap:10px; flex-wrap:wrap; align-items:center;
@@ -510,7 +505,6 @@
     @media (max-width: 720px){
       .container{width:min(100%, 100% - 28px)}
       h1{font-size:30px}
-      .featureGrid{grid-template-columns:1fr}
       .statRow{grid-template-columns: repeat(2, minmax(0,1fr))}
       .gallery img{height:240px}
       .contactGrid{grid-template-columns:1fr}
@@ -685,6 +679,35 @@
       .fade-in{opacity:1; transform:none; transition:none}
     }
 
+    /* Custom Cursor */
+    .cursor{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s, opacity .3s;
+      mix-blend-mode: screen;
+    }
+    .cursor.visible{opacity: 0.6}
+    .cursor.clicking{
+      width: 15px;
+      height: 15px;
+      opacity: 0.8;
+    }
+    .cursor.hovering{
+      width: 40px;
+      height: 40px;
+      opacity: 0.4;
+    }
+    @media (max-width: 768px), (hover: none){
+      .cursor{display: none}
+    }
+
     /* Floating CTA */
     .floatingCta{
       position: fixed;
@@ -778,22 +801,17 @@
           <div class="pill">Veteran-owned • Texas</div>
           <h1>Turn wall space into passive income.</h1>
           <p class="lead">We mount sleek, ID-verified machines in high-traffic bars, clubs, and casinos for quick essentials without a walkout.</p>
-          <div class="featureGrid">
-            <div class="featureCard">Cashless checkout</div>
-            <div class="featureCard">Curated nightly essentials</div>
-            <div class="featureCard">Remote monitoring + restocks</div>
-          </div>
           <div class="statRow">
             <div class="stat">
-              <strong>48 hrs or less</strong>
+              <strong><span class="counter" data-target="48" data-suffix=" hrs or less">0</span></strong>
               <span>Typical install window</span>
             </div>
             <div class="stat">
-              <strong>0 hrs/wk</strong>
+              <strong><span class="counter" data-target="0" data-suffix=" hrs/wk">0</span></strong>
               <span>Venue labor required</span>
             </div>
             <div class="stat">
-              <strong>99.2%</strong>
+              <strong><span class="counter" data-target="99.8" data-suffix="%" data-decimal="true">0</span></strong>
               <span>Uptime with remote monitoring</span>
             </div>
           </div>
@@ -1185,6 +1203,62 @@
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
     fadeElements.forEach(el => observer.observe(el));
 
+    // Custom cursor
+    const cursor = document.querySelector('.cursor');
+    if (cursor && window.matchMedia('(hover: hover)').matches) {
+      let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.classList.add('visible');
+      });
+
+      document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+      document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
+
+      document.querySelectorAll('a, button, .productTile, .card, .stat').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+      });
+
+      const animateCursor = () => {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+      };
+      animateCursor();
+    }
+
+    // Animated counters
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          const target = parseFloat(entry.target.dataset.target);
+          const suffix = entry.target.dataset.suffix || '';
+          const isDecimal = entry.target.dataset.decimal === 'true';
+          const duration = 1500;
+          const start = performance.now();
+
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = target * eased;
+            entry.target.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+
     // FAQ Accordion
     const faqToggle = document.querySelector(".faq-toggle");
     const faqList = document.querySelector(".faq-list");
@@ -1206,6 +1280,9 @@
       });
     });
   </script>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
 
   <!-- Floating CTA -->
   <a href="#contact" class="floatingCta">
